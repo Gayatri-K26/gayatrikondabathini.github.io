@@ -135,6 +135,8 @@ h2 {
     font-weight: 10;
     color: white;
     margin: 0;
+    font-style: italic;
+    line-height: 1.5;
 }
 
 /* skills section */
