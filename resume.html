@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Gayatri Kondabathini</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap") rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">)
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="images/headshot.jpg" alt="Gayatri Kondabathini">
+                </div>
+                <h1>Gayatri Kondabathini</h1>
+                <p class="tagline">Tech enthusiast, creator, CS student</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="index.html#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    <li class="active"><a href="index.html#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="social-links">
+                <a href="[https://github.com/Gayatri-K26"](https://github.com/Gayatri-K26") target="_blank"><i class="fab fa-github"></i></a>
+                <a href="[https://www.linkedin.com/in/gayatri-kondabathini/"](https://www.linkedin.com/in/gayatri-kondabathini/") target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:kgayatri2005@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <section class="section active">
+                <h2 class="section-title">Resume Access</h2>
+                <p class="section-description">Please enter the password to access my resume</p>
+                
+                <div class="resume-access">
+                    <div id="password-form" class="password-form">
+                        <div class="form-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="resume-password">Password</label>
+                            <input type="password" id="resume-password" placeholder="Enter password">
+                        </div>
+                        <button id="submit-password" class="btn btn-large">Access Resume</button>
+                        <p id="password-error" class="error-message"></p>
+                    </div>
+                    
+                    <div id="resume-content" class="resume-content" style="display: none;">
+                        <div class="resume-success">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Access Granted</h3>
+                            <p>Thank you for your interest in my resume.</p>
+                            <a href="" class="btn btn-large" download>Download Resume</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="back-to-home">
+                    <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordForm = document.getElementById('password-form');
+            const resumeContent = document.getElementById('resume-content');
+            const passwordInput = document.getElementById('resume-password');
+            const submitButton = document.getElementById('submit-password');
+            const errorMessage = document.getElementById('password-error');
+            
+            // Set your password here
+            const correctPassword = "honey3153";
+            
+            submitButton.addEventListener('click', function() {
+                const enteredPassword = passwordInput.value;
+                
+                if (enteredPassword === correctPassword) {
+                    // Password is correct
+                    passwordForm.style.display = 'none';
+                    resumeContent.style.display = 'block';
+                    
+                    // Add animation class
+                    resumeContent.classList.add('fade-in');
+                } else {
+                    // Password is incorrect
+                    errorMessage.textContent = "Incorrect password. Please try again.";
+                    passwordInput.value = "";
+                    passwordInput.focus();
+                }
+            });
+            
+            // Allow Enter key to submit
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    submitButton.click();
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        /* Additional styles for the resume page */
+        .resume-access {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .password-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-icon {
+            font-size: 60px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .resume-success {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .resume-success i {
+            font-size: 60px;
+            color: #2ecc71;
+            margin-bottom: 20px;
+        }
+        
+        .resume-success h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</body>
+</html>

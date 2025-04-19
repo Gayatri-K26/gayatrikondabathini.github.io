@@ -3,147 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Projects | Gayatri Kondabathini</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body id="projects-body">
-    <div id="navbar-placeholder"></div>
-    <div class="projects-box">
-        <div class="project">
-            <div class="project-content">
-                <div class="image-box">
-                    <img src="images/personalWebsite.png" alt="Project Image">
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="images/headshot.jpg" alt="Gayatri Kondabathini">
                 </div>
-                <div class="project-details">
-                    <h2>Personal Website</h2>
-                    <a href="https://github.com/Gayatri-K26/Personal-Website" class="btn">view on GitHub</a>
-                    <p>This is what you’re looking at right now! This website is used to keep track of all my projects and act as a portfolio.</p>
-                    <h3>Skills:</h3>
-                    <ul>
-                        <li>created using <b>JavaScript, HTML, CSS</b></li>
-                        <li>designed using <b>Figma</b></li>
-                    </ul>
-                    <h3>Major challenges:</h3>
-                    <ul>
-                        <li>using containers to position the main page accordingly</li>
-                    </ul>
-                </div>
+                <h1>Gayatri Kondabathini</h1>
+                <p class="tagline">Tech enthusiast, creator, CS student</p>
             </div>
-        </div>
-
-        <div class="project">
-            <div class="project-content">
-                <div class="image-box">
-                    <video autoplay muted loop>
-                        <source src="images/stockManager.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="project-details">
-                    <h2>Stock Manager</h2>
-                    <a href="https://github.com/Gayatri-K26/Stock-Manager" class="btn">view on GitHub</a>
-                    <p>This is an application which allows a user to create and query stock portfolios. It supports various functions buy/sell stock, gain/loss examination, x-day moving averages, and x-day crossover calculations. It has a GUI and text-based interface. Uses the AlphaVantage API.</p>
-                    <h3>Skills:</h3>
-                    <ul>
-                        <li>created using <b>java</b></li>
-                        <li>uses the <b>JFrame class</b> for GUI component</li>
-                        <li>uses an <b>MVC</b> structure</li>
-                        <li>uses the <b>command design pattern</b></li>
-                        <li>Reading from a file in java</li>
-                    </ul>
-                    <h3>Major challenges:</h3>
-                    <ul>
-                        <li>adhering to <b>SOLID principles</b></li>
-                        <li>keeping a log of all the data inputted</li>
-                        <li>designing the class structure of stocks and portfolios</li>
-                    </ul>
-                </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-user"></i> About</a></li>
+                    <li class="active"><a href="index.html#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="index.html#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="social-links">
+                <a href="https://github.com/Gayatri-K26" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gayatri-kondabathini/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
             </div>
-        </div>
-
-        <div class="project">
-            <div class="project-content">
-                <div class="image-box">
-                    <img src="images/calculator.png" alt="Project Image">
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <section class="section active">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-description">A collection of my software development work</p>
+                
+                <div class="projects-container">
+                    <!-- Project 1 -->
+                    <div class="project-card" id="personal-website">
+                        <div class="project-header">
+                            <h3>Personal Website</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/Gayatri-K26/Personal-Website" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-image">
+                                <img src="images/personalWebsite.png" alt="Personal Website">
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-description">
+                                    <p>This is what you're looking at right now! This website is used to keep track of all my projects and act as a portfolio.</p>
+                                </div>
+                                
+                                <div class="project-tech">
+                                    <h4>Technologies Used</h4>
+                                    <ul class="tech-list">
+                                        <li>JavaScript</li>
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>Figma</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-challenges">
+                                    <h4>Key Challenges</h4>
+                                    <p>Creating a clean, responsive design that effectively showcases my projects and skills.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card" id="stock-manager">
+                        <div class="project-header">
+                            <h3>Stock Manager</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/Gayatri-K26/Stock-Manager" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-image">
+                                <video autoplay muted loop>
+                                    <source src="images/stockManager.mov" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-description">
+                                    <p>An application which allows users to create and query stock portfolios. It supports various functions including buy/sell stock, gain/loss examination, x-day moving averages, and x-day crossover calculations. It has both GUI and text-based interfaces and uses the AlphaVantage API.</p>
+                                </div>
+                                
+                                <div class="project-tech">
+                                    <h4>Technologies Used</h4>
+                                    <ul class="tech-list">
+                                        <li>Java</li>
+                                        <li>JFrame</li>
+                                        <li>MVC Architecture</li>
+                                        <li>Command Design Pattern</li>
+                                        <li>File I/O</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-challenges">
+                                    <h4>Key Challenges</h4>
+                                    <ul>
+                                        <li>Adhering to SOLID principles</li>
+                                        <li>Maintaining a log of all user inputs</li>
+                                        <li>Designing an effective class structure for stocks and portfolios</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card" id="calculator">
+                        <div class="project-header">
+                            <h3>Simple Calculator</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/Gayatri-K26/Calculator" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-image">
+                                <img src="images/calculator.png" alt="Calculator">
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-description">
+                                    <p>A simple calculator which can perform basic arithmetic operations (+, -, *) based on user input.</p>
+                                </div>
+                                
+                                <div class="project-tech">
+                                    <h4>Technologies Used</h4>
+                                    <ul class="tech-list">
+                                        <li>Java</li>
+                                        <li>SOLID Principles</li>
+                                        <li>Factory Method Pattern</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-challenges">
+                                    <h4>Key Challenges</h4>
+                                    <ul>
+                                        <li>Minimizing mutation</li>
+                                        <li>Implementing immutable design by returning new calculator objects rather than mutating existing ones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card" id="munch-masters">
+                        <div class="project-header">
+                            <h3>Munch Masters Pro</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/gilicohen12/24s-project-boilerplate" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-image">
+                                <video autoplay muted loop>
+                                    <source src="images/MunchMastersPro.mov" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-description">
+                                    <p>An app created on AppSmith to function as a food tracker and blog database using Python and MySQL.</p>
+                                </div>
+                                
+                                <div class="project-tech">
+                                    <h4>Technologies Used</h4>
+                                    <ul class="tech-list">
+                                        <li>Python</li>
+                                        <li>MySQL</li>
+                                        <li>AppSmith</li>
+                                        <li>Docker</li>
+                                        <li>REST APIs</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-challenges">
+                                    <h4>Key Challenges</h4>
+                                    <ul>
+                                        <li>Handling user authentication securely</li>
+                                        <li>Managing the scope of the project effectively</li>
+                                        <li>Designing comprehensive ER diagrams</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card" id="light-up-game">
+                        <div class="project-header">
+                            <h3>Light Up Board Game</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/Gayatri-K26/Light-Up-Board-Game" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-image">
+                                <video autoplay muted loop>
+                                    <source src="images/Lightemall.mov" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="project-description">
+                                    <p>A board game inspired by the Light'em up game. A player can win by moving the cells so that the power star can light up all the wires.</p>
+                                </div>
+                                
+                                <div class="project-tech">
+                                    <h4>Technologies Used</h4>
+                                    <ul class="tech-list">
+                                        <li>Java</li>
+                                        <li>Java Image Library</li>
+                                        <li>Java World Class</li>
+                                        <li>BFS Algorithm</li>
+                                        <li>Kruskal's Algorithm</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="project-challenges">
+                                    <h4>Key Challenges</h4>
+                                    <ul>
+                                        <li>Designing the game structure</li>
+                                        <li>Implementing BFS to iterate through tiles and update links</li>
+                                        <li>Creating an intuitive user interface</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-details">
-                    <h2>Simple Calculator</h2>
-                    <a href="https://github.com/Gayatri-K26/Calculator" class="btn">view on GitHub</a>
-                    <p>This is a simple calculator which can perform basic arithmetic operations (+, -, *) based on user input. </p>
-                    <h3>Skills:</h3>
-                    <ul>
-                        <li>created using <b>java</b></li>
-                        <li>applying <b>SOLID principles</b></li>
-                        <li>abstracting tests - uses <b>factory method</b></li>
-                    </ul>
-                    <h3>Major challenges:</h3>
-                    <ul>
-                        <li>minimizing mutation</li>
-                        <li>returns a new calculator object rather than mutating an objecthandling intricacies with storing user login info</li>
-                    </ul>
+                
+                <div class="back-to-home">
+                    <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
                 </div>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-content">
-                <div class="image-box">
-                    <video autoplay muted loop>
-                        <source src="images/MunchMastersPro.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="project-details">
-                    <h2>Munch Masters Pro</h2>
-                    <a href="https://github.com/gilicohen12/24s-project-boilerplate" class="btn">view on GitHub</a>
-                    <p>This is an app created on AppSmith to perform as a food tracker and blog database using Python and MySQL.</p>
-                    <h3>Skills:</h3>
-                    <ul>
-                        <li>created using <b>python, mySQL, AppSmith</b></li>
-                        <li>designing <b>ER diagrams</b></li>
-                        <li>uses <b>Docker</b> software to deploy the app</li>
-                        <li>coding <b>CRUD operations</b> using <b>REST APIs</b></li>
-                    </ul>
-                    <h3>Major challenges:</h3>
-                    <ul>
-                        <li>handling intricacies with storing user login info</li>
-                        <li>handling the scope of the project</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-content">
-                <div class="image-box">
-                    <video autoplay muted loop>
-                        <source src="images/Lightemall.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="project-details">
-                    <h2>Light Up Board Game</h2>
-                    <a href="https://github.com/Gayatri-K26/Light-Up-Board-Game" class="btn">view on GitHub</a>
-                    <p>This is a board game inspired by the Light’em up game. A player can win by moving the cells so that the 
-                    power star can light up all the wires.</p>
-                    <h3>Skills:</h3>
-                    <ul>
-                        <li>created using <b>java</b></li>
-                        <li>played around with the <b>java image library</b> and <b>java World class</b>. </li>
-                        <li>learned how to implement <b>BFS</b></li>
-                        <li><b>void testing</b></li>
-                        <li><b>kruskal's algorithm</b></li>
-                    </ul>
-                    <h3>Major challenges:</h3>
-                    <ul>
-                        <li>designing the game structure</li>
-                        <li>using BFS to iterate through the tiles and update the links and power them up</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
+            </section>
+        </main>
     </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
