@@ -1,5 +1,20 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Cursor tracking for background glow effect
+    document.addEventListener('mousemove', function(e) {
+        // Update CSS variables with cursor position
+        document.documentElement.style.setProperty('--x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--y', e.clientY + 'px');
+    });
+    
+    // For touch devices
+    document.addEventListener('touchmove', function(e) {
+        if (e.touches.length > 0) {
+            document.documentElement.style.setProperty('--x', e.touches[0].clientX + 'px');
+            document.documentElement.style.setProperty('--y', e.touches[0].clientY + 'px');
+        }
+    });
+    
     // Navigation menu functionality
     const navLinks = document.querySelectorAll('.nav-menu a');
     const sections = document.querySelectorAll('.section');
@@ -57,25 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.querySelector('.welcome-card-content').classList.toggle('flipped');
         });
     }
-    
-    // Home page card navigation
-    const homeCards = document.querySelectorAll('.card');
-    homeCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const sectionId = this.getAttribute('data-section');
-            
-            // Special handling for About card
-            if (sectionId === 'about') {
-                // Stay on home section and flip the welcome card
-                if (welcomeCard) {
-                    welcomeCard.querySelector('.welcome-card-content').classList.add('flipped');
-                }
-            } else {
-                // Normal section switching
-                switchSection(sectionId);
-            }
-        });
-    });
     
     // Portfolio item hover effect
     const portfolioItems = document.querySelectorAll('.portfolio-item');
