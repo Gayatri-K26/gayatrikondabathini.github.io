@@ -20,7 +20,7 @@
                     <img src="images/headshot.jpg" alt="Gayatri Kondabathini">
                 </div>
                 <h1>Gayatri Kondabathini</h1>
-                <p class="tagline">Tech enthusiast, creator, CS student</p>
+                <p class="tagline">Tech enthusiast, creator, <br>CS student</p>
             </div>
             
             <nav class="nav-menu">
@@ -46,20 +46,76 @@
             <section id="home" class="section active">
                 <div class="welcome-card">
                     <div class="welcome-card-content">
-                        <div class="welcome-card-front">
-                            <div class="welcome-text">
-                                <h2>Hello, I'm Gayatri <span class="wave-emoji">👋</span></h2>
-                                <p>Welcome to my portfolio website. I'm a computer science and business administration student at Northeastern University with a passion for software engineering.</p>
-                            </div>
-                            <div class="welcome-image">
-                                <img src="images/headshot.jpg" alt="Gayatri Kondabathini">
+                        <div class="welcome-text">
+                            <h2>Hello, I'm Gayatri <span class="wave-emoji">👋</span></h2>
+                            <p>I’m a second-year Honors student at Northeastern University, studying Computer Science and Business Administration . Right now, I’m building developer tools at CarGurus, contributing to impactful projects at Northeastern’s software consultancy, Sandbox, and sharing my thoughts on tech through my blog, Tech Unfiltered.
+
+                                My technical interests span full-stack development, object-oriented design, AI/ML-powered solutions, and microservices.
+                                
+                                Outside of code, you’ll find me painting, creating content, exploring local coffee shops, and taking long walks.</p>
+                            <div class="welcome-buttons">
+                                <a href="#resume" class="welcome-btn">My Resume</a>
+                                <a href="#contact" class="welcome-btn">Contact Me</a>
                             </div>
                         </div>
-                        <div class="welcome-card-back">
-                            <h2>About Me</h2>
-                            <p>Hey there! I'm a dedicated and passionate computer science enthusiast with a love for software engineering challenges. I'm pursuing my bachelor's in computer science and business administration at Northeastern University. I approach every team I'm part of with a dedicated, welcoming, and honest mindset, and I believe in having fun along the way.
-                            Beyond coding, I enjoy painting, reading, and staying active through walks and workout classes.</p>
+                        <div class="welcome-image">
+                            <img src="images/headshot.jpg" alt="Gayatri Kondabathini">
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Card -->
+                <div class="portfolio-card">
+                    <h2>My Portfolio</h2>
+                    <div class="portfolio-grid">
+                        
+                        <div class="portfolio-item">
+                            <video autoplay muted loop>
+                                <source src="images/stockManager.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="portfolio-overlay">
+                                <h3>Stock Manager</h3>
+                                <p>Java, MVC, Command Pattern</p>
+                                <a href="https://github.com/Gayatri-K26/Stock-Manager" class="btn" target="_blank">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <img src="images/calculator.png" alt="Calculator">
+                            <div class="portfolio-overlay">
+                                <h3>Simple Calculator</h3>
+                                <p>Java, SOLID Principles</p>
+                                <a href="https://github.com/Gayatri-K26/Calculator" class="btn" target="_blank">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <video autoplay muted loop>
+                                <source src="images/MunchMastersPro.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="portfolio-overlay">
+                                <h3>Munch Masters Pro</h3>
+                                <p>Python, MySQL, AppSmith</p>
+                                <a href="https://github.com/gilicohen12/24s-project-boilerplate" class="btn" target="_blank">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <video autoplay muted loop>
+                                <source src="images/Lightemall.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="portfolio-overlay">
+                                <h3>Light Up Board Game</h3>
+                                <p>Java, BFS Algorithm</p>
+                                <a href="https://github.com/Gayatri-K26/Light-Up-Board-Game" class="btn" target="_blank">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="projects.html" class="portfolio-btn">View All Projects</a>
                     </div>
                 </div>
             </section>
@@ -131,7 +187,10 @@
                     </div>
                     
                     <div class="portfolio-item">
-                        <img src="images/stockManager.mov" alt="Stock Manager">
+                        <video autoplay muted loop>
+                            <source src="images/stockManager.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                         <div class="portfolio-overlay">
                             <h3>Stock Manager</h3>
                             <p>Java, MVC, API Integration</p>
@@ -149,7 +208,10 @@
                     </div>
                     
                     <div class="portfolio-item">
-                        <img src="images/MunchMastersPro.mov" alt="Munch Masters Pro">
+                        <video autoplay muted loop>
+                            <source src="images/MunchMastersPro.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                         <div class="portfolio-overlay">
                             <h3>Munch Masters Pro</h3>
                             <p>Python, MySQL, AppSmith</p>
@@ -166,8 +228,6 @@
             <!-- Resume Section -->
             <section id="resume" class="section">
                 <h2 class="section-title">Resume</h2>
-                <p class="section-description">My professional experience and qualifications</p>
-                
                 <div class="resume-preview">
                     <div class="resume-icon">
                         <i class="fas fa-file-alt"></i>

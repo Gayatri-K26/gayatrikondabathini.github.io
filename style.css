@@ -24,7 +24,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #e6f7ff; /* Light blue background */
+    background-color: #c6eafb; /* Light blue background */
     position: relative;
     overflow-x: hidden;
 }
@@ -41,11 +41,12 @@ body::before {
     background: radial-gradient(
         circle 250px at var(--x, 50%) var(--y, 50%),
         var(--glow-color) 0%,
-        transparent 70%
+        transparent 40%
     );
     opacity: 0.7;
-    z-index: -1;
+    z-index: 10; /* Changed from -1 to 10 to appear above content */
     transition: background 0.3s ease;
+    mix-blend-mode: screen; /* Added to make glow visible on dark backgrounds */
 }
 
 a {
@@ -96,7 +97,7 @@ img {
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 20px;
-    border: 5px solid rgba(255, 255, 255, 0.1);
+    border: 5px solid rgb(255, 255, 255);
 }
 
 .profile-img img {
@@ -293,7 +294,6 @@ img {
 
 /* Welcome Card Styles */
 .welcome-card {
-    perspective: 1000px;
     cursor: pointer;
     max-width: 1100px;
     margin: 0 auto 60px;
@@ -304,33 +304,16 @@ img {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.welcome-card:hover .welcome-card-content {
-    transform: rotateY(180deg);
-}
-
-.welcome-card-front, .welcome-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-.welcome-card-front {
-    background-color: var(--white);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 50px;
+    box-sizing: border-box;
 }
 
 .welcome-text {
@@ -338,12 +321,52 @@ img {
     padding-right: 30px;
 }
 
+.welcome-text h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.welcome-text p {
+    max-width: 700px;
+    color: white;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.welcome-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.welcome-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #c6eafb;
+    color: #000000;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-btn:hover {
+    background-color: #a1ddf9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
 .welcome-image {
     width: 300px;
     height: 300px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid rgba(173, 216, 230, 0.5);
+    border: 5px solid rgb(209, 241, 252);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -353,68 +376,33 @@ img {
     object-fit: cover;
 }
 
-.welcome-card-back {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.welcome-card-back h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: var(--white);
-}
-
-.welcome-card-back p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-    font-size: 16px;
-}
-
-/* Welcome Text */
-.welcome-text {
-    text-align: center;
-}
-
-.welcome-text h2 {
-    font-size: 42px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.welcome-text h3 {
-    font-size: 24px;
-    color: var(--secondary-color);
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-
-.welcome-text p {
-    max-width: 700px;
-    margin: 0 auto;
-    color: var(--text-light);
-    font-size: 18px;
-    line-height: 1.8;
-}
-
+/* Responsive adjustments for welcome card */
 @media (max-width: 768px) {
     .welcome-card {
-        height: 400px;
+        height: auto;
+        
+        min-height: 400px;
     }
     
-    .welcome-card-front, .welcome-card-back {
+    .welcome-card-content {
+        flex-direction: column;
         padding: 30px;
     }
     
-    .welcome-text h2 {
-        font-size: 32px;
+    .welcome-text {
+        padding-right: 0;
+        padding-bottom: 20px;
+        text-align: center;
     }
     
-    .welcome-text h3 {
-        font-size: 20px;
+    .welcome-image {
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .welcome-text h2 {
+        font-size: 36px;
     }
     
     .welcome-text p {
@@ -458,19 +446,18 @@ img {
 /* Portfolio Section */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 30px;
     margin-bottom: 40px;
 }
 
 .portfolio-item {
     position: relative;
-    border-radius: 15px;
+    height: 100px; /* Increased from 140px for larger portfolio items */
+    border-radius: 8px; /* Slightly larger border radius */
     overflow: hidden;
-    height: 250px;
     box-shadow: var(--shadow);
-    background-color: var(--white);
-    transition: var(--transition);
+    cursor: pointer;
 }
 
 .portfolio-item:hover {
@@ -488,7 +475,13 @@ img {
     object-fit: cover;
     z-index: 1;
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition: transform 0.5s ease;
+    background-color: #000; /* Added background color for videos */
+}
+
+.portfolio-item:hover img,
+.portfolio-item:hover video {
+    transform: scale(1.05);
 }
 
 .portfolio-overlay {
@@ -497,49 +490,165 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    text-align: center;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.5s ease;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5;
 }
 
 .portfolio-item:hover .portfolio-overlay {
-    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
 }
 
 .portfolio-overlay h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: transparent;
-    transition: color 0.5s ease;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .portfolio-overlay p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: transparent;
-    transition: color 0.5s ease;
-}
-
-.portfolio-item:hover .portfolio-overlay h3,
-.portfolio-item:hover .portfolio-overlay p {
-    color: var(--white);
+    color: #c6eafb;
+    margin-bottom: 8px;
+    font-size: 12px;
 }
 
 .portfolio-overlay .btn {
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.3s ease, background-color 0.3s ease;
+    padding: 5px 10px;
+    font-size: 11px;
+    background-color: #e6f7ff;
+    color: #000000;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
 }
 
 .portfolio-item:hover .portfolio-overlay .btn {
     opacity: 1;
-    background-color: var(--white);
-    color: var(--primary-color);
+}
+
+.portfolio-overlay .btn:hover {
+    background-color: #a1ddf9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Portfolio Card Styles */
+.portfolio-card {
+    max-width: 1100px;
+    margin: 60px auto;
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.portfolio-card h2 {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.portfolio-item {
+    position: relative;
+    height: 150px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.portfolio-overlay p {
+    color: #c6eafb;
+    margin-bottom: 15px;
+}
+
+.portfolio-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #c6eafb;
+    color: #000000;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.portfolio-btn:hover {
+    background-color: #a1ddf9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .portfolio-card {
+        padding: 30px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-item {
+        height: 150px;
+    }
 }
 
 /* Resume Section */

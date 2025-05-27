@@ -66,13 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Welcome card flip functionality
-    if (welcomeCard) {
-        welcomeCard.addEventListener('click', function() {
-            this.querySelector('.welcome-card-content').classList.toggle('flipped');
-        });
-    }
-    
     // Portfolio item hover effect
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     portfolioItems.forEach(item => {
