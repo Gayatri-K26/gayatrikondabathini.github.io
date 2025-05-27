@@ -1041,3 +1041,235 @@ img {
         margin-bottom: 20px;
     }
 }
+
+/* Experience Card Styles */
+.experience-card {
+    max-width: 1100px;
+    margin: 60px auto;
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.experience-card h2 {
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.experience-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience-header {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.experience-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.experience-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.experience-title h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.experience-title h4 {
+    color: #e6f7ff;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.experience-date {
+    color: #c6eafb;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.experience-content p {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.experience-bullets {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.experience-bullets li {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.experience-bullets li:last-child {
+    margin-bottom: 0;
+}
+
+.experience-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #e6f7ff;
+    color: #000000;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.experience-btn:hover {
+    background-color: #a1ddf9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Experience Section Styles */
+#experience .section-description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.experience-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--medium-gray);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    width: 45%;
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: #e6f7ff;
+    border-radius: 50%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    left: -40px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    right: -40px;
+}
+
+.timeline-date {
+    position: absolute;
+    top: 20px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    left: -150px;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    right: -150px;
+}
+
+@media (max-width: 768px) {
+    .experience-timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(odd) {
+        flex-direction: row;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+    }
+    
+    .timeline-item .timeline-content::before,
+    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -40px;
+    }
+    
+    .timeline-item .timeline-date,
+    .timeline-item:nth-child(odd) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date {
+        left: -70px;
+        top: 20px;
+        width: 60px;
+        text-align: right;
+    }
+}

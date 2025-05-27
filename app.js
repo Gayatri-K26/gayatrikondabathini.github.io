@@ -20,6 +20,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
     const welcomeCard = document.querySelector('.welcome-card');
     
+    // Check for hash in URL when page loads (for direct links)
+    if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        // If the hash is for experience-card, scroll to it
+        if (targetId === 'experience-card') {
+            const experienceCard = document.getElementById('experience-card');
+            if (experienceCard) {
+                setTimeout(function() {
+                    experienceCard.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        } else if (document.getElementById(targetId)) {
+            // For other section IDs, switch to that section
+            switchSection(targetId);
+        }
+    }
+    
     // Function to switch active section
     function switchSection(id) {
         // Hide all sections
@@ -49,20 +66,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event to navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const sectionId = this.getAttribute('href').substring(1);
-            
-            // Special handling for About link
-            if (sectionId === 'about') {
-                // Go to home section and flip the card
-                switchSection('home');
-                if (welcomeCard) {
-                    welcomeCard.querySelector('.welcome-card-content').classList.add('flipped');
+            // Only prevent default for hash links (internal page navigation)
+            if (this.getAttribute('href').includes('#') && !this.getAttribute('href').includes('.html')) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href').substring(1);
+                
+                // Special handling for About link
+                if (sectionId === 'about') {
+                    // Go to home section and flip the card
+                    switchSection('home');
+                    if (welcomeCard) {
+                        welcomeCard.querySelector('.welcome-card-content').classList.add('flipped');
+                    }
+                } else {
+                    // Switch to the selected section
+                    switchSection(sectionId);
                 }
-            } else {
-                // Normal section switching
-                switchSection(sectionId);
             }
+            // For links to other pages (containing .html), let the default behavior happen
         });
     });
     
