@@ -186,12 +186,77 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fetch and load navbar
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    fetch('navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            navbarPlaceholder.innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Error loading navbar:', error);
-        });
+    if (navbarPlaceholder) {
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                navbarPlaceholder.innerHTML = data;
+                
+                // Set active state based on current page
+                const currentPage = window.location.pathname.split('/').pop();
+                const currentHash = window.location.hash;
+                
+                // Remove all active classes first
+                setTimeout(() => {
+                    const navItems = document.querySelectorAll('.nav-menu li');
+                    navItems.forEach(item => item.classList.remove('active'));
+                    
+                    // Set active based on current page
+                    if (currentPage === '' || currentPage === 'index.html') {
+                        if (currentHash === '#experience-card') {
+                            document.getElementById('nav-experience')?.classList.add('active');
+                        } else if (currentHash === '#resume') {
+                            document.getElementById('nav-resume')?.classList.add('active');
+                        } else if (currentHash === '#contact') {
+                            document.getElementById('nav-contact')?.classList.add('active');
+                        } else {
+                            document.getElementById('nav-home')?.classList.add('active');
+                        }
+                    } else if (currentPage === 'projects.html') {
+                        document.getElementById('nav-portfolio')?.classList.add('active');
+                    }
+                    
+                    // Add event listeners to all nav links after navbar is loaded
+                    const navLinks = document.querySelectorAll('.nav-menu a');
+                    navLinks.forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            // Don't add special handling for external links (those with full URLs)
+                            if (this.href.includes('http') && !this.href.includes(window.location.hostname)) {
+                                return; // Let the browser handle external links normally
+                            }
+                            
+                            // For links to other pages on the site
+                            if (!this.getAttribute('href').includes('#') || this.getAttribute('href').includes('.html')) {
+                                // No need to prevent default - let normal navigation happen
+                                // But preload the navbar for the next page
+                                localStorage.setItem('navbarLoaded', 'false');
+                                return;
+                            }
+                            
+                            // For hash links within the same page
+                            e.preventDefault();
+                            const sectionId = this.getAttribute('href').substring(1);
+                            
+                            // Handle special cases
+                            if (sectionId === 'experience-card') {
+                                const experienceCard = document.getElementById('experience-card');
+                                if (experienceCard) {
+                                    setTimeout(() => {
+                                        experienceCard.scrollIntoView({ behavior: 'smooth' });
+                                    }, 100);
+                                }
+                            } else if (document.getElementById(sectionId)) {
+                                switchSection(sectionId);
+                            }
+                            
+                            // Update URL hash without causing a page jump
+                            history.pushState(null, null, `#${sectionId}`);
+                        });
+                    });
+                }, 100); // Small delay to ensure DOM is updated
+            })
+            .catch(error => {
+                console.error('Error loading navbar:', error);
+            });
+    }
 });
