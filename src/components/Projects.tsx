@@ -29,9 +29,9 @@ const Projects = () => {
       gradient: "from-blue-500/20 to-cyan-500/20",
     },
     {
-      title: "Munch Masters Pro",
-      description: "An innovative food tracking platform.",
-      tech: ["React", "TypeScript", "UI/UX"],
+      title: "Classify_Digits",
+      description: "A simple neural network built with PyTorch to classify handwritten digits from the MNIST dataset.",
+      tech: ["Python", "PyTorch", "Torchvision", "NumPy", "Matplotlib"],
       github: "https://github.com/Gayatri-K26",
       link: "https://github.com/Gayatri-K26",
       gradient: "from-orange-500/20 to-red-500/20",
